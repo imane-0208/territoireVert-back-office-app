@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Categorie extends Model
+{
+    use HasFactory;
+    protected $table = 'categories';
+    protected $primaryKey = 'id';
+    protected $fillable = ['categoryName'];
+
+    public function partenaires()
+    {
+        return $this->belongsToMany(Partenaire::class, 'partenaire_categorie', 'categorie_id', 'partenaire_id');
+    }
+}
