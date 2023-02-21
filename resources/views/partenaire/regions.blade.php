@@ -27,7 +27,7 @@
                             <h5 class="modal-title" id="exampleModalLabel">Ajouter Region</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <form action="{{ route('addRegion')}}" method="POST">
+                            <form action="{{ route('addRegionToPartner')}}" method="POST">
                                 
                                 <div class="modal-body">
                                     <div class="mb-3">

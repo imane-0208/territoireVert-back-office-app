@@ -16,7 +16,7 @@ class CategorieController extends Controller
     public function store(Request $request){
         $input = $request->all();
         Categorie::create($input);
-        return redirect('categorie')->with('flash message', 'categorie a été ajouté avec succés');
+        return redirect()->back()->with('success', 'Data deleted successfully');
     }
 
     public function edit($id){
@@ -37,13 +37,21 @@ class CategorieController extends Controller
         
         
         $partenaires = Partenaire::whereNotIn('nom', $array )->get();
-        dd( $partenaires);
+        // dd( $partenaires);
         
         // return view('partenaire.categories', compact('partenaire','categories'));
         // return $categories;
         // $categories = $partenaire->categories;
         
         return $partenaire;
+    }
+
+
+    function delete($id){
+        $categorie = Categorie::find($id);
+        $categorie->delete();
+
+        return redirect()->back()->with('success', 'Data deleted successfully');
     }
 
 

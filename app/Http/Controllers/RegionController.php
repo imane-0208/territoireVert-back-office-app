@@ -16,7 +16,7 @@ class RegionController extends Controller
     public function store(Request $request){
         $input = $request->all();
         Region::create($input);
-        return redirect('region')->with('flash message', 'region a été ajouté avec succés');
+        return redirect()->back()->with('success', 'Data deleted successfully');
     }
 
     public function edit($id){
@@ -24,4 +24,13 @@ class RegionController extends Controller
         return view('region.index')->with('region', $region);
 
     }
+
+
+    function delete($id){
+        $region = Region::find($id);
+        $region->delete();
+
+        return redirect()->back()->with('success', 'Data deleted successfully');
+    }
+
 }

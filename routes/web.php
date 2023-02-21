@@ -27,23 +27,25 @@ Route::middleware(['auth'])->group(function () {
     
     Route::get('/partenaire',[PartenaireController::class , 'index'])->name('partenaire');
     Route::post('/partenaire/addPartenaire',[PartenaireController::class, 'store'])->name('addPartenaire');
-    Route::post('/partenaire/delete',[PartenaireController::class, 'delete'])->name('deletePartenaire');
+    Route::delete('/partenaire/delete{id}',[PartenaireController::class, 'delete'])->name('deletePartenaire');
     Route::get('/partenaire/edit/{id}',[PartenaireController::class, 'edit'])->name('partenaire.edit');
     Route::post('/partenaire/update',[PartenaireController::class, 'update'])->name('partenaire.update');
 
     Route::get('/partenaire/categories/{id}',[PartenaireController::class, 'getPartnerCategories'])->name('partenaire.categories');
-    Route::post('/partenaire/addCategory',[PartenaireController::class, 'addCategory'])->name('addCategory');
+    Route::post('/partenaire/addCategory',[PartenaireController::class, 'addCategory'])->name('addCategoryToPartner');
     Route::post('/partenaire/deleteCategory',[PartenaireController::class, 'deletePartenaireCategory'])->name('deletePartenaireCategory');
-    Route::post('/partenaire/deleteRegion',[PartenaireController::class, 'deletePartenaireRegion'])->name('deletePartenaireRegion');
-
+    
     Route::get('/partenaire/region/{id}',[PartenaireController::class, 'getPartnerRegions'])->name('partenaire.regions');
-    Route::post('/partenaire/addRegion',[PartenaireController::class, 'addRegion'])->name('addRegion');
+    Route::post('/partenaire/addRegion',[PartenaireController::class, 'addRegion'])->name('addRegionToPartner');
+    Route::post('/partenaire/deleteRegion',[PartenaireController::class, 'deletePartenaireRegion'])->name('deletePartenaireRegion');
 
     Route::get('/region',[RegionController::class, 'index'])->name('regions');
     Route::post('/region/add',[RegionController::class, 'store'])->name('addRegion');
+    Route::delete('/region/delete/{id}',[RegionController::class, 'delete'])->name('deleteRegion');
 
     Route::get('/categories',[CategorieController::class, 'index'])->name('categories');
     Route::post('/categories/add',[CategorieController::class, 'store'])->name('addcategory');
+    Route::delete('/categories/delete/{id}',[CategorieController::class, 'delete'])->name('deleteCategory');
 
   
     // Route::resource('categorie',CategorieController::class);

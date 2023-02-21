@@ -29,11 +29,11 @@ class PartenaireController extends Controller
         
         $categories = Categorie::whereNotIn('categoryName', $array )->get();
         
-        // return view('partenaire.categories', compact('partenaire','categories'));
+        return view('partenaire.categories', compact('partenaire','categories'));
         // return $categories;
         // $categories = $partenaire->categories;
         
-        return $partenaire;
+        // return $partenaire;
     }
 
 
@@ -103,11 +103,13 @@ class PartenaireController extends Controller
         return redirect()->back()->with('success', 'Data inserted successfully');
     }
 
-    public function delete(Request $request) 
+    
+
+    public function delete($id) 
     {
         // dd($request);
         
-        $partenaire = Partenaire::find($request->partenaireId);
+        $partenaire = Partenaire::find($id);
         $partenaire->delete();
         return redirect()->back()->with('success', 'Data deleted successfully');
     }  
