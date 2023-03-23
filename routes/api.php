@@ -26,3 +26,5 @@ Route::get('/regions',[RegionController::class, 'index'])->name('regions');
 Route::get('/partenaires',[PartenaireController::class , 'index'])->name('partenaire');
 Route::get('/categories/partenaire/{id}',[CategorieController::class, 'getCategoriePartners'])->name('categorie.partners');
 Route::get('/regions/partenaire/{id}',[RegionController::class, 'getRegionPartners'])->name('region.partners');
+Route::get('/partenaire',[PartenaireController::class, 'getPartenaireByCategoryAndRegion'])->name('partners');
+Route::post('/partenaire/create',[PartenaireController::class, 'store'])->name('partners.create');

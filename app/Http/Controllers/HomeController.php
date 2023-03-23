@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Partenaire;
+use App\Models\Categorie;
+use App\Models\Region;
 
 class HomeController extends Controller
 {
@@ -23,6 +26,23 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        
+        $partenaires = Partenaire::with('categories' , 'regions')->where('confirmed', false)->get();
+        // dd($partenaires);
+        return view('home', compact('partenaires' , 'partenaires'));
+        
+    }
+
+    public function confirmPartener(Request $request)
+    {
+        
+        Partenaire::where('id', $request->partenaireId)->update([
+            'confirmed' => $request->confirmed
+         ]);
+
+         $partenaires = Partenaire::with('categories' , 'regions')->where('confirmed', 0)->get();
+        // dd($partenaires);
+        return redirect()->back()->with('partenaires' , $partenaires );
+        
     }
 }

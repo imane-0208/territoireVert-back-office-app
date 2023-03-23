@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('site')->nullable();
             $table->text('description')->nullable();
             $table->string('img_path')->nullable();
-            $table->boolean('confirmed')->default(true);
+            $table->boolean('confirmed')->default(false);
             $table->timestamps();
         });
     }

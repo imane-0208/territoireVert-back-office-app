@@ -17,6 +17,11 @@ class PartenaireController extends Controller
 
     }
 
+    // public function partnersNoneConfirmed(){
+    //     $partenaires = Partenaire::with('categories' , 'regions')->where("confirmed", 0)->get();
+    //     return view('home' , compact('partenaires','partenaire'));
+    // }
+
     public function getPartnerCategories($id)
     {
         

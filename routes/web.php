@@ -53,6 +53,7 @@ Route::middleware(['auth'])->group(function () {
     
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/home/confirmer', [App\Http\Controllers\HomeController::class, 'confirmPartener'])->name('confirm');
 
 // Route::get('/categories/{id}',[CategorieController::class, 'getCategoriePartners'])->name('categorie.partners');
 

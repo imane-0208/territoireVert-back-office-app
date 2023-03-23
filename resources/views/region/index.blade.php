@@ -47,7 +47,7 @@
                     <br>
                     <br>
                     <div class="table-responsive">
-                        <table class="table">
+                        <table id="dtBasicExample" class="table">
                             <thead>
                               <tr>
                                 <th scope="col">#</th>
@@ -122,6 +122,8 @@
     </div>
     
 </div>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script type="text/javascript">
  
@@ -142,6 +144,13 @@
             }
           });
       });
+      
+      $(document).ready(function () {
+        $('#dtBasicExample').DataTable();
+        $('.dataTables_length').addClass('bs-select');
+        });
+
+
   
 </script>
 @endsection
